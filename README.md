@@ -24,8 +24,13 @@ The app will start at http://localhost:3001
 
 Swagger UI (Springdoc 2): http://localhost:3001/swagger-ui/index.html  
 Docs redirect: http://localhost:3001/docs  
-OpenAPI JSON: http://localhost:3001/openapi.json  
+OpenAPI JSON: http://localhost:3001/openapi.json  (Springdoc default /v3/api-docs also available via redirect)
 H2 console: http://localhost:3001/h2-console (JDBC URL: `jdbc:h2:mem:notesdb`, user `sa`, empty password)
+
+Notes:
+- Jakarta Bean Validation provider is included (hibernate-validator + EL); validation annotations on DTOs work without NoProviderFoundException.
+- H2 is configured with DB_CLOSE_DELAY=-1 and DB_CLOSE_ON_EXIT=FALSE; ddl-auto=update to reduce "Database is already closed" messages during dev.
+- Open Session in View is disabled (spring.jpa.open-in-view=false).
 
 ### Endpoints
 

@@ -33,7 +33,7 @@ public class HelloController {
     public RedirectView docs(HttpServletRequest request) {
         // Prefer springdoc 2 default UI path: /swagger-ui/index.html
         String target = UriComponentsBuilder
-                .fromHttpRequest(new ServletServerHttpRequest(request))
+                .fromHttpUrl(request.getRequestURL().toString())
                 .replacePath("/swagger-ui/index.html")
                 .replaceQuery(null)
                 .build()
