@@ -7,7 +7,7 @@ A simple CRUD REST API for managing notes.
 - Framework: Spring Boot 3
 - Port: 3001
 - DB: H2 (in-memory)
-- Docs: `/swagger-ui.html` (or `/docs` redirect)
+- Docs: `/swagger-ui/index.html` (or `/docs` redirect)
 - Health: `/health`
 - API base path: `/api/notes`
 
@@ -22,7 +22,8 @@ cd notes_backend
 
 The app will start at http://localhost:3001
 
-Swagger UI: http://localhost:3001/swagger-ui.html  
+Swagger UI (Springdoc 2): http://localhost:3001/swagger-ui/index.html  
+Docs redirect: http://localhost:3001/docs  
 OpenAPI JSON: http://localhost:3001/openapi.json  
 H2 console: http://localhost:3001/h2-console (JDBC URL: `jdbc:h2:mem:notesdb`, user `sa`, empty password)
 

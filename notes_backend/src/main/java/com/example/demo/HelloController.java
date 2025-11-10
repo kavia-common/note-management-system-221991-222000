@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 import org.springframework.web.util.UriComponentsBuilder;
 
+/**
+ * PUBLIC_INTERFACE
+ * Basic endpoints and documentation redirect for the Notes backend.
+ */
 @RestController
 @Tag(name = "Hello Controller", description = "Basic endpoints for notesbackend")
 public class HelloController {
@@ -22,11 +26,15 @@ public class HelloController {
 
     // PUBLIC_INTERFACE
     @GetMapping("/docs")
-    @Operation(summary = "API Documentation", description = "Redirects to Swagger UI preserving original scheme/host/port")
+    @Operation(
+            summary = "API Documentation",
+            description = "Redirects to Swagger UI. Springdoc 2 serves UI at /swagger-ui/index.html by default."
+    )
     public RedirectView docs(HttpServletRequest request) {
+        // Prefer springdoc 2 default UI path: /swagger-ui/index.html
         String target = UriComponentsBuilder
                 .fromHttpRequest(new ServletServerHttpRequest(request))
-                .replacePath("/swagger-ui.html")
+                .replacePath("/swagger-ui/index.html")
                 .replaceQuery(null)
                 .build()
                 .toUriString();
